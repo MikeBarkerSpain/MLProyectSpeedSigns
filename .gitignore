@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+models/
 documentation/
+*settings.json
+
 
 # C extensions
 *.so

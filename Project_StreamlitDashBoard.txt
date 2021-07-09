@@ -1,0 +1,10 @@
+A folder src/dashboard/ that contains an “app.py” file that will run a streamlit
+dashboard using the necessary command. There is, at least, these menu
+sections:
+i. “Welcome”: here the user must see some information about the project and your profile.
+2ii. “Visualization”: here the user must see some graphs/images of your data.
+iii. “Json API-Flask”: here the user must see a table/dataframe from your cleaned data. Optional if you do not have dataframe data.
+iv. “Model Prediction”: here the user must see model information and must be able to execute a prediction using your saved model. If the prediction must be done with text, then the user must be able to write text. If the prediction must be done with an image/file, then the user
+must be able to upload an image/file.
+v. “Models From SQL Database”: here the user will see the models comparison from MySQL. The table of comparison is called “model_comparasion”. Its columns are: [“model”, “parameters”, “recall”, “score”] or [“model”, “parameters”, “rmse”, “r2”]
+vi. Others you need. For example, the table “predictions” if you have it.
