@@ -22,7 +22,7 @@ df = dsh.cargar_datos(csv_path)
 menu = st.sidebar.selectbox('Menu:',
                             options=['Bienvenida','Análisis','Dashboard', 'Flask'])
 
-st.title("Elecciones a la asamblea de la CAM")
+st.title("Proyecto de Machine Learning Reconocimiento de señales de velocidad en autopistas")
 
 if menu == 'Bienvenida':
     dsh.menu_home(df)

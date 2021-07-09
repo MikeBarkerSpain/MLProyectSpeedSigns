@@ -2,7 +2,6 @@ import json
 from collections import Counter
 
 
-
 def read_json_to_dict(json_fullpath):
     """
     Read a json and return a object created from it.

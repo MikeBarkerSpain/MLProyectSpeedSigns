@@ -1,0 +1,46 @@
+
+Data collection and explanation 
+1. Document all steps. Structure your code to keep it cleaned using good practices.
+2. Collect the data. Try to do each call, it collects the last updated data.
+3. Determine and explain if the data is cleaned. If not, then clean it.
+4. Use Data Augmentation, dimensionality reduction and/or other techniques you
+need.
+
+API section
+5. Create an API that returns a Json with the logic explained. The flask server must be
+executed running the src/api/server.py file.
+
+Dashboard: mostrar el funcionamiento de cada modelo por separado y en conjunto
+6. Create the Streamlit dashboard.
+7. Show different tendencies for each column in your dataset.
+9. Choose the target (y) of your data. Which is the best model and hyperparams for the
+training? Create a model comparison using, at least, 5 different models with
+different hyperparameters.
+10. Represent in a dataframe the top 5 models with their hyperparameters for your
+data.
+
+TimePieChart
+check 'tiempos.txt'
+
+SQL
+11. Use your dataframe cleaned to insert its values to a MySQL database. The info of the
+database will be in the “sql” channel on Discord. To do that, you will need to create a
+Table with the dataframe columns. The name of the table is your entire name using
+“_” between words. Example: “pepito_perez_galdos”. It is not allowed to upload more
+than 20k rows. If you have other data types, then upload the info of your dataset
+with these columns: [“id”, “filename”, “metadata”]. “metadata” column is related to
+file data, for example, resolution, filesize, etc
+
+Feedback
+12. Answer the questions:
+a. Was it possible to demonstrate the hypothesis? Why? (optional)
+Si, el modelo de reconocimiento directo de individual predice mucho peor las señales que los otros dos modelos por separado, y a mayores, el modelo de predición combinado predice mejor las señales que cualquiera de los modelos por separado. 
+
+b. What can you conclude about your data study?
+El gran problema de este estudio ha sido el uso de los modelos en un entorno real con imágenes tomadas en una situación de conducción real (google maps)
+
+c. What would you change if you needed to do another DS project?
+No cambiaría nada, simplemente me gustaría tener un poco más de tiempo para evaluar más mejoras
+
+d. What do you learn doing this project?
+aprendí muchísimo sobre gestión del tiempo, y que el aprendizaje de deep learning aprende de una forma que los humanos no entendemos de forma intuitiva.

@@ -1,0 +1,12 @@
+{
+"project_name" : "Análisis de imágenes para reconocimiento de señales de tráfico con varios modelos de DeepLearning",
+"author" : "Miguel Barquero del Pozo",
+"linkedin" : "https://www.linkedin.com/in/miguel-barquero/",
+"e_mail" : "mbarquerodelpozo@gmail.com",
+"project_title" : "Proyecto de Machine Learning Reconocimiento de señales de velocidad en autopistas",
+"project_description" : "Generación de varios modelos basados en distintas técnicas de clasificación para el reconocimiento de señales de tráfico",
+"flask_port" : 6060,
+"streamlit_port" : 8501,
+"links" : "Más inforamción en la memoria del proyecto. seguimiento del proyecto en Trello: https://trello.com/b/oAunoS57/machine-learning-speedsigns-recognition, https://github.com/MikeBarkerSpain/MLProyectSpeedSigns",
+"python_libraries_used" : ["pandas", "numpy", "flask", "matplotlib", "keras", "cv2"]
+}
