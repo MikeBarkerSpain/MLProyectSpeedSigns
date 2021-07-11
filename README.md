@@ -36,5 +36,5 @@ GTSRB	https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign
 Ppm	    https://github.com/arubiales/Traffic-Signals-TF/blob/master/Models_from_scratch.ipynb
 GitHUb	https://github.com/MikeBarkerSpain/MLProyectSpeedSigns
 
-Memoria completa en documentation, título 'Memoria - Proyecto de Machine Learning'
+Memoria completa en documentation, título 'Memoria - Proyecto de Machine Learning', sin embargo el código ha sido comentado en 'main.ipynb' para seguir los paso que se hacen durante la ejecución. Además, en la carpeta notebooks se incluye el archivo 'ML_Model_trainer.ipynb', que muestra como han sido entrenados los distintos modelos para llegar a las conclusiones del estudio.
 

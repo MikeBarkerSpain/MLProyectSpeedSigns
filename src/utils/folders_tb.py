@@ -44,4 +44,8 @@ def get_img_array_from_dir(data_path,img_height, img_width):
     X_test_32_1 = X_test_32     #/255
     return X_test_32_1, only_image_names
 
+def save_df_to_csv(final_df):
+    final_df.to_csv(src_path + '/data/final_img_analisis_df.csv')
 
+def save_df_compmodels_to_csv(final_df):
+    final_df.to_csv(src_path + '/data/final_models_comp_df.csv')

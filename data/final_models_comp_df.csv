@@ -1,0 +1,6 @@
+,id,timestamp,model,filename,description,class,score
+0,1,2021-07-10 10:03:28,model0,model_vgg16_signs0.h5,Trained with one single processing layer to identify speed signs,test_speed,65%
+1,2,2021-07-10 10:03:28,model1,model_vgg16_class1.h5|model_vgg16_signs1.h5,2 models trained to classify and identify signs,test_speed,"67,86%"
+2,3,2021-07-10 10:03:28,model2,model_vgg16_class2.h5|model_vgg16_signs2.h5,2 models trained to classify and identify signs,test_speed,"67,86%"
+3,4,2021-07-10 10:03:28,model,model0|model1|model2|voting,3 models combined with a voting code,test_speed,"69,64%"
+4,5,2021-07-10 10:03:28,model,model0|model1|model2|voting,3 models combined with a voting code,real_environment,25%
