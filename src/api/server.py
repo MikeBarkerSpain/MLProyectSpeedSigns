@@ -29,7 +29,7 @@ def create_json():
 # ---------- Other functions ----------
 
 def main(x):
-    if x == 8642:
+    if x == 8426:
         print("---------STARTING PROCESS---------")
         print(__file__)
         

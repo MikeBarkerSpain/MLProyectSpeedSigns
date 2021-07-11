@@ -11,11 +11,20 @@ import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns 
 import numpy as np 
-import os
+import os,sys
 import random
 import statistics
+import tensorflow as tf
+from tensorflow import keras
 
-root_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))   # se sube hasta el nivel de la raiz del proyecto
+root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # se sube hasta el nivel de la raiz del proyecto
+# se incorpora la ruta hasta el directorio raiz al path del archivo
+sys.path.append(root_path)
+
+import src.utils.models as md
+import src.utils.folders_tb as fld
+
+
 
 def configuracion():
     st.set_page_config(page_title='Proyecto de Machine Learning Reconocimiento de señales de velocidad en autopistas', page_icon=':votes:', layout="wide")
@@ -207,17 +216,54 @@ def menu_predict():
         st.info('MUCHAS GRACIAS POR VUESTRA ATENCIÓN')
 
 # Predicciones Reales
-def menu_predict_real ():   #  Predicciones del modelo final, e incluir una predicción en caliente del modelo
-    pass
+def menu_predict_real ():   #  Predicciones del modelo finalcon una predicción en caliente del modelo
+    # variables nevesarias 
+    img_height = 144
+    img_width = 144
+    signs = ['no_speed', 'speed100', 'speed120', 'speed20', 'speed30', 'speed50', 'speed60', 'speed70', 'speed80']
+
+    # Carga de los modelos necesarios 
+    ### CARGA DE LOS MODELOS SOLO EN LA PRIMERA EJECUCIÓN ####
+    model_path = root_path + os.sep + 'models' + os.sep 
+
+    # MODELO OPCIÓN 0 ###
+    model_vgg16_signs0 = keras.models.load_model(model_path + 'model_vgg16_signs0.h5')
+
+    # MODELO OPCIÓN 1 ###
+    model_vgg16_class1 = keras.models.load_model(model_path + 'model_vgg16_class1.h5')
+    model_vgg16_signs1 = keras.models.load_model(model_path + 'model_vgg16_signs1.h5')
+
+    # MODELO OPCIÓN 2 ###
+    model_vgg16_class2 = keras.models.load_model(model_path + 'model_vgg16_class2.h5')
+    model_vgg16_signs2 = keras.models.load_model(model_path + 'model_vgg16_signs2.h5')
+    
+    # Introducción de los resultados de los distintos modelos
+    st.subheader('Predicciones realizadas con las imágenes de entorno real')
+    img = Image.open(root_path + os.sep + 'resources' + os.sep + 'streetview.png')
+    st.image(img, use_column_width='auto')
+
+    col1, col2 = st.beta_columns([2, 4])
+    img_sel = st.sidebar.file_uploader("Select png", type=['png'])
+    if img_sel:
+        st.image(img_sel, use_column_width='auto')
+
+    if st.button('Predicción'):
+        # acceso a la carpeta de predicción
+        data_path = root_path + os.sep + 'data' + os.sep +'data_prediction'
+        
+        # llamada a la función para obtener la lista de imágenes a procesar
+        img_list, only_image_names = fld.get_img_array_from_dir(data_path,img_height, img_width)
+
+        ### PREDICCIÓN ####
+        # Variables de predicción de señal (tanto final como cada modelo)
+        Y_pred,Y_pred_mod0,Y_pred_mod1,Y_pred_mod2 = md.voting3_pred (img_list,img_height, img_width, model_vgg16_signs0, model_vgg16_class1, model_vgg16_signs1, model_vgg16_class2, model_vgg16_signs2)
+        st.subheader(signs[Y_pred[0][0]])
+    
 
 # 'Flask-Predicciones': salida del df con los datos de análisis de las imágenes
 def menu_flask(df):
     st.subheader("Selección de imágenes analizadas en el proyecto")
-    st.dataframe(df)
-
-    if st.button('Get data'):
-        datos_json = rq.get('http://localhost:6060/pwd?password=T05290575').json()
-        st.dataframe(pd.DataFrame(datos_json))
+    st.dataframe(pd.DataFrame(df))
 
 # 'Comparativa de modelos':  Tabla de comparativas entre modelos 
 def menu_modelo_comp(df_model):
