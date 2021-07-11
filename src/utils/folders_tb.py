@@ -49,3 +49,11 @@ def save_df_to_csv(final_df):
 
 def save_df_compmodels_to_csv(final_df):
     final_df.to_csv(src_path + '/data/final_models_comp_df.csv')
+
+def save_df_timetable_to_csv(final_df):
+    final_df.to_csv(src_path + '/data/final_timetable.csv')
+
+def read_tiempos ():
+    filename = src_path + '/documentation/Timetable.csv'
+    tiempos = pd.read_csv(filename, sep=';')
+    return tiempos

@@ -259,7 +259,6 @@ def menu_predict_real ():   #  Predicciones del modelo finalcon una predicción 
         Y_pred,Y_pred_mod0,Y_pred_mod1,Y_pred_mod2 = md.voting3_pred (img_list,img_height, img_width, model_vgg16_signs0, model_vgg16_class1, model_vgg16_signs1, model_vgg16_class2, model_vgg16_signs2)
         st.subheader(signs[Y_pred[0][0]])
     
-
 # 'Flask-Predicciones': salida del df con los datos de análisis de las imágenes
 def menu_flask(df):
     st.subheader("Selección de imágenes analizadas en el proyecto")
@@ -272,7 +271,41 @@ def menu_modelo_comp(df_model):
 
 # 'Tabla de tiempos':    #mostrar los tiempos de cada concepto del proyecto
 def menu_timetable():
-    pass
+    # Introducción del desglose de los timepos invertidos en el proyecto
+    st.subheader('Tiempos invertidos en el proyecto')
+    st.write('''Una vez acabado el proyecto, es posible analizar el tiempo invertido en cada elemento del proyecto.''')
+
+    # Tiempos invertidos en el total del proyecto
+    st.subheader('Categorías del proyecto')
+    st.write('''El proyecto ha consumido un total de 42 horas, y el tiempo invertido en cada categoría se distribuye así:''')
+
+    # Distribución de los tiempos
+    img = Image.open(root_path + os.sep + 'src' + os.sep + 'piechartCat.png')
+    st.image(img, use_column_width='auto')
+
+    # Tiempos invertidos en la categoría de códificación
+    st.subheader('Consumo de tiempo en la categoría de codificación')
+    st.write('''El proyecto ha consumido un total de 18 horas y 15 minutos, y el tiempo invertido en cada subcategoría se distribuye así:''')
+
+    # Distribución de los tiempos en la categoría de codificación
+    img = Image.open(root_path + os.sep + 'src' + os.sep + 'piechart_cod.png')
+    st.image(img, use_column_width='auto')
+
+    # Tiempos invertidos en la categoría de documentación
+    st.subheader('Consumo de tiempo en la categoría de documentación')
+    st.write('''El proyecto ha consumido un total de 9 horas y 15 minutos, y el tiempo invertido en cada subcategoría se distribuye así:''')
+
+    # Distribución de los tiempos en la categoría de codificación
+    img = Image.open(root_path + os.sep + 'src' + os.sep + 'piechart_doc.png')
+    st.image(img, use_column_width='auto')
+
+    # Tiempos invertidos en la categoría de visualización
+    st.subheader('Consumo de tiempo en la categoría de visualización')
+    st.write('''El proyecto ha consumido un total de 7 horas y 15 minutos, y el tiempo invertido en cada subcategoría se distribuye así:''')
+
+    # Distribución de los tiempos en la categoría de codificación
+    img = Image.open(root_path + os.sep + 'src' + os.sep + 'piechart_visu.png')
+    st.image(img, use_column_width='auto')
 '''
 def menu_filtrado(df):
 
